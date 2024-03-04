@@ -1,9 +1,10 @@
 <div align="center">
 
-  # mov-cli-anitaku
-  <sub>A mov-cli v4 plugin for watching anitaku.</sub>
+  # mov-cli-vadapav
+  <sub>A mov-cli v4 plugin for watching Vadapav.</sub>
 
-  <img src="https://github.com/mov-cli/mov-cli-gogotaku/assets/132799819/1436339c-f2c3-4c37-b9ae-0da6b83faf8d">
+  <img src="https://github.com/mov-cli/mov-cli-vadapav/assets/132799819/6406133d-f840-424b-a1c9-04599fadb0a7">
+
 
 </div>
 
@@ -15,7 +16,7 @@ Here's how to install and add the plugin to mov-cli.
 
 1. Install the pip package.
 ```sh
-pip install git+https://github.com/mov-cli/mov-cli-anitaku 
+pip install git+https://github.com/mov-cli/mov-cli-vadapav 
 ```
 2. Then add the plugin to your mov-cli config.
 ```sh
@@ -23,10 +24,10 @@ mov-cli -e
 ```
 ```toml
 [mov-cli.plugins]
-anitaku = "mov-cli-anitaku"
+vadapav = "mov-cli-vadapav"
 ```
 
 ## Usage
 ```sh
-mov-cli lycoris recoil --scraper anitaku
+mov-cli the rookie --scraper vadapav
 ```
