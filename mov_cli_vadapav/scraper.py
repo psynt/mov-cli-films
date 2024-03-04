@@ -92,9 +92,11 @@ class VadapavScraper(Scraper):
             item = VadapavSerial(item)
             id = item.id
             title = item.name
-            year = re.match(r"(\d{4})", item.name)
+            year = re.findall("\((\d{4})\)", item.name)
 
-            year = year.group() if year else None
+            year = year[0] if year else None
+
+            print(year)
 
             type = MetadataType.SERIES if self.http_client.get(f"{self.base_url}/api/d/{id}").json()["data"]["files"][0]["name"].__contains__("Season") else MetadataType.MOVIE
 
