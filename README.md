@@ -9,7 +9,7 @@
 </div>
 
 > [!Warning]
-> Currently work in progress.
+> WIP and written at 3 am 💀
 
 ## Installation
 Here's how to install and add the plugin to mov-cli.
