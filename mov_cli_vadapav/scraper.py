@@ -9,16 +9,13 @@ if TYPE_CHECKING:
 
 import re
 
-from dataclasses import dataclass
-
 from mov_cli import utils
 from mov_cli.scraper import Scraper
 from mov_cli import Series, Movie, Metadata, MetadataType
-from mov_cli import ExtraMetadata
 
 __all__ = ("VadapavScraper",)
 
-class VadapavSearch:
+class VadapavSerial:
     def __init__(self, data):
         self.id: str = data["id"]
         self.name: str = data["name"]
@@ -43,8 +40,10 @@ class VadapavScraper(Scraper):
             files = self.http_client.get(f"{self.base_url}/api/d/{metadata.id}").json()["data"]["files"]
 
             for file in files:
-                if file["dir"] == False:
-                    id = file["id"]
+                file = VadapavSerial(file)
+                if not file.dir:
+                    id = file.id
+                    break
 
             url = "https://vadapav.mov/f/" + id
 
@@ -58,11 +57,22 @@ class VadapavScraper(Scraper):
 
         season = episode.season - 1
 
-        files = self.http_client.get(f"{self.base_url}/api/d/{metadata.id}").json()["data"]["files"][season]["id"]
+        season_id = self.http_client.get(f"{self.base_url}/api/d/{metadata.id}").json()["data"]["files"][season]["id"]
 
-        id = self.http_client.get(f"{self.base_url}/api/d/{metadata.id}").json()["data"]["files"][episode.season - 1]["id"]
+        episode_ids = self.http_client.get(f"{self.base_url}/api/d/{season_id}").json()["data"]["files"]
+
+        for epi in episode_ids:
+            epi = VadapavSerial(epi)
+            if episode.episode <= 9: 
+                if f"E0{episode.episode}" in epi.name:
+                    id = epi.id
+            else:    
+                if f"E{episode.episode}" in epi.name:
+                    id = epi.id
 
         url = "https://vadapav.mov/f/" + id
+
+        print(url)
 
         return Series(
             url,
@@ -79,7 +89,7 @@ class VadapavScraper(Scraper):
         items = self.http_client.get(f"{self.base_url}/api/s/{query}").json()["data"]
 
         for item in items:
-            item = VadapavSearch(item)
+            item = VadapavSerial(item)
             id = item.id
             title = item.name
             year = re.match(r"(\d{4})", item.name)
