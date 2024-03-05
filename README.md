@@ -5,7 +5,6 @@
 
   <img src="https://github.com/mov-cli/mov-cli-vadapav/assets/132799819/6406133d-f840-424b-a1c9-04599fadb0a7">
 
-
 </div>
 
 > [!Warning]
@@ -24,10 +23,10 @@ mov-cli -e
 ```
 ```toml
 [mov-cli.plugins]
-vadapav = "mov-cli-vadapav"
+films = "mov-cli-vadapav"
 ```
 
 ## Usage
 ```sh
-mov-cli the rookie --scraper vadapav
+mov-cli -s films the rookie
 ```
