@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from mov_cli.plugins import PluginHookData
 
-from .scraper import *
+from .vadapav import *
 
 plugin: PluginHookData = {
     "version": 1, 

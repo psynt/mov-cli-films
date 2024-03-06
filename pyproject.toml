@@ -1,6 +1,6 @@
 [project]
-name = "mov-cli-vadapav"
-description = "A mov-cli v4 plugin for watching vadapav."
+name = "mov-cli-films"
+description = "A mov-cli v4 plugin for watching Films and Shows."
 authors = [
     {name = "Ananas", email = "ananas@r3tr0ananas.lol"},
     {name = "Goldy", email = "goldy@devgoldy.xyz"}
@@ -24,7 +24,6 @@ classifiers = [
 dependencies = [
     "requests",
     "importlib-metadata; python_version<'3.8'",
-    "mov-cli"
 ]
 
 dynamic = ["version"]
@@ -36,15 +35,15 @@ dev = [
 ]
 
 [project.urls]
-GitHub = "https://github.com/mov-cli/mov-cli-vadapav"
-BugTracker = "https://github.com/mov-cli/mov-cli-vadapav/issues"
+GitHub = "https://github.com/mov-cli/mov-cli-films"
+BugTracker = "https://github.com/mov-cli/mov-cli-films/issues"
 
 [tool.setuptools.dynamic]
-version = { attr = "mov_cli_vadapav.__version__" }
+version = { attr = "mov_cli_films.__version__" }
 
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-include = ["mov_cli_vadapav*"]
+include = ["mov_cli_films*"]
