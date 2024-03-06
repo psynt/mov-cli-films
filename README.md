@@ -1,7 +1,7 @@
 <div align="center">
 
-  # mov-cli-vadapav
-  <sub>A mov-cli v4 plugin for watching Vadapav.</sub>
+  # mov-cli-films 
+  <sub>A mov-cli v4 plugin for watching Films and Shows.</sub>
 
   <img src="https://github.com/mov-cli/mov-cli-vadapav/assets/132799819/6406133d-f840-424b-a1c9-04599fadb0a7">
 
@@ -15,7 +15,7 @@ Here's how to install and add the plugin to mov-cli.
 
 1. Install the pip package.
 ```sh
-pip install git+https://github.com/mov-cli/mov-cli-vadapav 
+pip install git+https://github.com/mov-cli/mov-cli-films 
 ```
 2. Then add the plugin to your mov-cli config.
 ```sh
@@ -23,7 +23,7 @@ mov-cli -e
 ```
 ```toml
 [mov-cli.plugins]
-films = "mov-cli-vadapav"
+films = "mov-cli-films"
 ```
 
 ## Usage
