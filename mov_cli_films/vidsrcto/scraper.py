@@ -25,7 +25,7 @@ class IMDbSerial:
         self.qid: str = data["qid"]
         self.rank: int = data["rank"]
         self.s: str = data["s"]
-        self.y: int = data["y"]
+        self.year: Optional[int] = data.get("y")
 
 class VidSrcToScraper(Scraper):
     def __init__(self, config: Config, http_client: HTTPClient) -> None:
@@ -45,7 +45,7 @@ class VidSrcToScraper(Scraper):
             if added == limit:
                 break
 
-            if result["qid"] not in ["movie", "tvSeries"]:
+            if result.get("qid") not in ["movie", "tvSeries"]:
                 continue
 
             result = IMDbSerial(result)
@@ -55,7 +55,7 @@ class VidSrcToScraper(Scraper):
                     id = result.id,
                     title = result.l,
                     type = MetadataType.MOVIE if result.qid == "movie" else MetadataType.SERIES,
-                    year = result.y,
+                    year = result.year,
                     #extra_func = extra_metadata(result)
                 )
             )
