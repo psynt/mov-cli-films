@@ -5,12 +5,14 @@ if TYPE_CHECKING:
     from mov_cli.plugins import PluginHookData
 
 from .vadapav import *
+from .vidsrcto import *
 
 plugin: PluginHookData = {
     "version": 1, 
     "scrapers": {
-        "DEFAULT": VadapavScraper, 
-        "vadapav": VadapavScraper
+        "DEFAULT": VidSrcToScraper, 
+        "vadapav": VadapavScraper,
+        "vidsrcto": VidSrcToScraper
     }
 }
 
