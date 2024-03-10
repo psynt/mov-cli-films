@@ -19,13 +19,13 @@ __all__ = ("VidSrcToScraper",)
 
 class IMDbSerial:
     def __init__(self, data):
-        self.i: Dict[Any] = data["i"]
         self.id: str = data["id"]
         self.l: str = data["l"]
         self.qid: str = data["qid"]
         self.rank: int = data["rank"]
         self.s: str = data["s"]
         self.year: Optional[int] = data.get("y")
+        self.image: Optional[Dict[Any]] = data.get("i")
 
 class VidSrcToScraper(Scraper):
     def __init__(self, config: Config, http_client: HTTPClient) -> None:
