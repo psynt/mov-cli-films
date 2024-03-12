@@ -49,6 +49,9 @@ class VidSrcToScraper(Scraper):
             if added == limit:
                 break
 
+            if not "qid" in result:
+                continue
+
             if result["qid"] not in ["movie", "tvSeries"]:
                 continue
 
