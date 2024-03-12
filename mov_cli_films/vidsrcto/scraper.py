@@ -181,7 +181,7 @@ class NoDataId(MovCliException):
     """Raised when scraper couldn't find DataId."""
     def __init__(self, metadata: Metadata) -> None:
         super().__init__(
-            f"We couldn't find any DataId while scraping {metadata.title}"
+            f"Did not find any DataId while scraping {metadata.title}"
         )
 
 
@@ -189,5 +189,5 @@ class NoSources(MovCliException):
     """Raised when scraper couldn't find supported sources."""
     def __init__(self, metadata: Metadata) -> None:
         super().__init__(
-            f"We couldn't find any supported sources while scraping {metadata.title}"
+            f"Did not find any supported sources while scraping {metadata.title}"
         )

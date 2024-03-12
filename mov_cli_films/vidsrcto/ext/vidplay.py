@@ -10,6 +10,7 @@ if TYPE_CHECKING:
 import re
 import base64
 import json
+from mov_cli.errors import MovCliException
 
 class VidPlay():
     def __init__(self, http_client: HTTPClient) -> None:
@@ -108,3 +109,10 @@ class VidPlay():
             return [value.get("file") for value in sources]
         
         return None, None
+
+class RC4DecodeFailure(MovCliException):
+    """Raised when failure on decoding RC4 data."""
+    def __init__(self) -> None:
+        super().__init__(
+            f"Failed to decode RC4 Data."
+        )
